@@ -1,0 +1,420 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 14px;
+  --background: #1E2430;
+  --foreground: #E8EAED;
+  --card: #232B3A;
+  --card-foreground: #E8EAED;
+  --popover: #232B3A;
+  --popover-foreground: #E8EAED;
+  --primary: #3A6BF0;
+  --primary-foreground: #FFFFFF;
+  --secondary: #2A3441;
+  --secondary-foreground: #E8EAED;
+  --muted: #2A3441;
+  --muted-foreground: #9CA3AF;
+  --accent: #3A6BF0;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #374151;
+  --input: #2A3441;
+  --input-background: #2A3441;
+  --switch-background: #374151;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #3A6BF0;
+  --chart-1: #3A6BF0;
+  --chart-2: #06B6D4;
+  --chart-3: #10B981;
+  --chart-4: #F59E0B;
+  --chart-5: #EF4444;
+  --radius: 0.625rem;
+  --sidebar: #1A202C;
+  --sidebar-foreground: #E8EAED;
+  --sidebar-primary: #3A6BF0;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #2A3441;
+  --sidebar-accent-foreground: #E8EAED;
+  --sidebar-border: #374151;
+  --sidebar-ring: #3A6BF0;
+  
+  /* Xiaomi Redmi Note 13 Pro optimizations */
+  --mobile-padding: 12px;
+  --mobile-font-size: 16px; /* Prevents zoom on input focus */
+  --mobile-button-height: 44px; /* Apple's recommended touch target */
+  --mobile-sidebar-width: 280px;
+  --safe-area-inset-top: env(safe-area-inset-top, 0);
+  --safe-area-inset-right: env(safe-area-inset-right, 0);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0);
+  --safe-area-inset-left: env(safe-area-inset-left, 0);
+}
+
+.dark {
+  --background: #1E2430;
+  --foreground: #E8EAED;
+  --card: #232B3A;
+  --card-foreground: #E8EAED;
+  --popover: #232B3A;
+  --popover-foreground: #E8EAED;
+  --primary: #3A6BF0;
+  --primary-foreground: #FFFFFF;
+  --secondary: #2A3441;
+  --secondary-foreground: #E8EAED;
+  --muted: #2A3441;
+  --muted-foreground: #9CA3AF;
+  --accent: #3A6BF0;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #374151;
+  --input: #2A3441;
+  --ring: #3A6BF0;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: #3A6BF0;
+  --chart-2: #06B6D4;
+  --chart-3: #10B981;
+  --chart-4: #F59E0B;
+  --chart-5: #EF4444;
+  --sidebar: #1A202C;
+  --sidebar-foreground: #E8EAED;
+  --sidebar-primary: #3A6BF0;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #2A3441;
+  --sidebar-accent-foreground: #E8EAED;
+  --sidebar-border: #374151;
+  --sidebar-ring: #3A6BF0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    /* Safe area support for Xiaomi Redmi Note 13 Pro */
+    padding-top: var(--safe-area-inset-top);
+    padding-right: var(--safe-area-inset-right);
+    padding-bottom: var(--safe-area-inset-bottom);
+    padding-left: var(--safe-area-inset-left);
+  }
+  
+  html {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
+/**
+ * Base typography optimized for Xiaomi Redmi Note 13 Pro
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4; /* Tighter line height for mobile */
+      color: var(--foreground);
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+      color: var(--foreground);
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+      color: var(--foreground);
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+      color: var(--foreground);
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+      color: var(--foreground);
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+      color: var(--foreground);
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+      min-height: var(--mobile-button-height); /* Touch-friendly buttons */
+    }
+
+    input, textarea {
+      font-size: var(--mobile-font-size); /* Prevents zoom on focus */
+      font-weight: var(--font-weight-normal);
+      line-height: 1.4;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Mobile-optimized scrollbar for Xiaomi Redmi Note 13 Pro */
+::-webkit-scrollbar {
+  width: 6px; /* Thinner for mobile */
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2A3441;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4B5563;
+}
+
+/* Selection styles */
+::selection {
+  background: #3A6BF0;
+  color: #FFFFFF;
+}
+
+::-moz-selection {
+  background: #3A6BF0;
+  color: #FFFFFF;
+}
+
+/* Mobile-specific optimizations for Xiaomi Redmi Note 13 Pro */
+@media (max-width: 768px) {
+  :root {
+    --font-size: 15px; /* Slightly larger for better readability */
+    --mobile-padding: 16px;
+  }
+  
+  /* Better touch targets */
+  button, .button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Improved spacing for mobile */
+  .space-y-4 > * + * {
+    margin-top: 1rem;
+  }
+  
+  .space-y-6 > * + * {
+    margin-top: 1.5rem;
+  }
+  
+  /* Better card padding on mobile */
+  .card {
+    padding: var(--mobile-padding);
+  }
+}
+
+/* Specific optimizations for 393x852 viewport (Xiaomi Redmi Note 13 Pro) */
+@media (max-width: 393px) {
+  :root {
+    --font-size: 14px;
+    --mobile-padding: 12px;
+  }
+  
+  /* Compact layout for narrow screens */
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  /* More compact buttons */
+  .text-xs {
+    font-size: 0.7rem;
+  }
+  
+  /* Adjust dialog/modal sizes */
+  .dialog-content {
+    margin: 8px;
+    max-width: calc(100vw - 16px);
+  }
+}
+
+/* Portrait orientation optimizations */
+@media (orientation: portrait) and (max-width: 768px) {
+  /* Full height utilization */
+  .h-screen {
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height */
+  }
+  
+  /* Sidebar optimizations */
+  .sidebar {
+    width: var(--mobile-sidebar-width);
+  }
+}
+
+/* Landscape orientation for Xiaomi Redmi Note 13 Pro */
+@media (orientation: landscape) and (max-height: 500px) {
+  :root {
+    --mobile-padding: 8px;
+  }
+  
+  /* Compact header in landscape */
+  .header {
+    padding: 8px 16px;
+  }
+  
+  /* Smaller buttons in landscape */
+  button {
+    min-height: 36px;
+  }
+}
+
+/* High DPI display support (Xiaomi Redmi Note 13 Pro has high pixel density) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Sharper borders and lines */
+  .border {
+    border-width: 0.5px;
+  }
+  
+  /* Better icon rendering */
+  svg {
+    shape-rendering: geometricPrecision;
+  }
+}
+
+/* Dark theme enhancements for AMOLED display */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* True black for AMOLED power savings */
+    --background: #000000;
+    --card: #111111;
+    --sidebar: #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border: #FFFFFF;
+    --foreground: #FFFFFF;
+    --primary: #4A90E2;
+  }
+}
+
+/* Custom styles for better mobile interaction */
+.mobile-optimized {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Better focus styles for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent iOS safari zoom on input focus */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+  font-size: 16px !important;
+}
+
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
